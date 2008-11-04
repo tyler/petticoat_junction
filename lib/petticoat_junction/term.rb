@@ -29,7 +29,6 @@ class PetticoatJunction
         :from => [:tweets,:videos], 
         :through => :stories
 
-
       model.named_scope :need_updated, lambda { |story_type, queued_before, viewed_after|
         { :select => 'terms.id',
           :joins => :refreshes,

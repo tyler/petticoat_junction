@@ -1,0 +1,1 @@
+require 'petticoat_junction'

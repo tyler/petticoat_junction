@@ -49,7 +49,6 @@ class PetticoatJunction
       end      
     end
 
-
     def initialize
       @churn = Thread.new { churn }
     end
