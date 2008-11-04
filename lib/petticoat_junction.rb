@@ -12,4 +12,12 @@ require 'metaid'
 
 class PetticoatJunction
   STARLING = Starling.new('127.0.0.1:22122')
+  
+  class << self
+    attr_reader :models
+    def model(model)
+      @models ||= []
+      @models << model
+    end
+  end
 end
