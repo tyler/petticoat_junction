@@ -37,12 +37,19 @@ Set up your db schema:
   add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at"
   add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at_and_last_searched_at"
 
-Create a Term model:
+Create these models:
 
   class Term < ActiveRecord::Base
 	  include PetticoatJunction::Content
 	end
-
+	
+	class Story < ActiveRecord::Base
+	  include PetticoatJunction::Story
+	end
+	
+	class Refresh < ActiveRecord::Base
+	  include PetticoatJunction::Refresh
+	end
 
 h2. Requirements
 

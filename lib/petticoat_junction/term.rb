@@ -25,10 +25,10 @@ class PetticoatJunction
     def self.included(model)
       model.has_many :refreshes
 
-      model.has_many_polymorphs :contents,
-        :from => [:tweets,:videos], 
-        :through => :stories
-
+      # model.has_many_polymorphs :contents,
+      #         :from => [:tweets,:videos], 
+      #         :through => :stories
+      
       model.named_scope :need_updated, lambda { |story_type, queued_before, viewed_after|
         { :select => 'terms.id',
           :joins => :refreshes,
