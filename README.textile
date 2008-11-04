@@ -56,7 +56,7 @@ h2. Requirements
 * starling (sudo gem install starling-starling --source=http://gems.github.com)
 * metaid (sudo gem install metaid)
 
-h2. Future Goals
+h2. Plans for the future
 
 * Remove reliance on Starling so you can plug in other queuing systems like SQS
 
