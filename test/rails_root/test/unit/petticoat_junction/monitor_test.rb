@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../../mocks/test/mock_service'
 class PetticoatJunctionMonitorTest < ActiveSupport::TestCase
   should_respond_to 'PetticoatJunction::Monitor', :start, :stop, :die
 
-  context 'An instance of a subclass of Petticoat::Monitor' do
+  context 'An instance of a subclass of PetticoatJunction::Monitor' do
     setup do
       # don't do #new here... it'll start a #churn thread
       @monitor = MockService::Monitor.allocate

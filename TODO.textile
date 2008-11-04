@@ -1,0 +1,6 @@
+DB SCHEMA
+
+* remove terms#latest_twitter_id?
+* rename stories? what is that content? text? texts?
+* db index on stories#content_id + stories#content_type
+*

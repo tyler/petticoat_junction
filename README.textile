@@ -1,0 +1,55 @@
+h1. Petticoat Junction
+
+Framework for periodically searching any web service.
+
+h2. Usage
+
+Set up your db schema:
+
+  create_table "refreshes", :force => true do |t|
+    t.integer  "term_id"
+    t.string   "story_type"
+    t.datetime "queued_at"
+    t.datetime "searched_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.integer  "term_id"
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "content_created_at"
+  end
+
+  add_index "stories", ["content_created_at"], :name => "index_stories_on_content_created_at"
+
+  create_table "terms", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "latest_twitter_id"
+    t.datetime "last_viewed_at"
+  end
+
+  add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at"
+  add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at_and_last_searched_at"
+
+Create a Term model:
+
+  class Term < ActiveRecord::Base
+	  include PetticoatJunction::Content
+	end
+
+
+h2. Requirements
+
+* starling (sudo gem install starling-starling --source=http://gems.github.com)
+* metaid (sudo gem install metaid)
+
+h2. Future Goals
+
+* Remove reliance on Starling so you can plug in other queuing systems like SQS
+
