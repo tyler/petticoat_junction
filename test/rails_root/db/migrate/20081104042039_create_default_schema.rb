@@ -30,11 +30,16 @@ class CreateDefaultSchema < ActiveRecord::Migration
 
     add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at"
     add_index "terms", ["last_viewed_at"], :name => "index_terms_on_last_viewed_at_and_last_searched_at"
+
+    create_table 'foo_bars', :force => true do |t|
+      t.string 'text'
+    end
   end
 
   def self.down
     drop_table :terms
     drop_table :stories
     drop_table :refreshes
+    drop_table :foo_bars
   end
 end
