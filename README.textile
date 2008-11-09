@@ -40,7 +40,7 @@ Set up your db schema:
 Create these models:
 
   class Term < ActiveRecord::Base
-	  include PetticoatJunction::Content
+	  include PetticoatJunction::Term
 	end
 	
 	class Story < ActiveRecord::Base
@@ -49,6 +49,12 @@ Create these models:
 	
 	class Refresh < ActiveRecord::Base
 	  include PetticoatJunction::Refresh
+	end
+	
+Now, for any kind of content you need (Tweet, Article, Video, Photo, Audio):
+
+  class FooBar < ActiveRecord::Base
+	  include PetticoatJunction::Content
 	end
 
 h2. Requirements
