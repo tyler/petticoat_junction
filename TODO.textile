@@ -1,6 +1,4 @@
-DB SCHEMA
-
-* remove terms#latest_twitter_id?
+* remove terms#latest_twitter_id? from db schema
 * rename stories? what is that content? text? texts?
 * db index on stories#content_id + stories#content_type
 * uncomment has_many_polymorphs, lines 28-30 in lib/petticoat_junction/term.rb

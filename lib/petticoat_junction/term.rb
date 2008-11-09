@@ -1,5 +1,6 @@
 class PetticoatJunction
   module Term
+
     %w(viewed_at queued_at searched_at).each do |timestamp|
       define_method("update_#{timestamp}") do |story_type|
         refresh = refreshes.find(:first, :conditions => ['story_type = ?', story_type.to_s])
@@ -20,7 +21,6 @@ class PetticoatJunction
         refreshes.create :story_type => type
       end
     end
-
 
     def self.included(model)
       model.has_many :refreshes

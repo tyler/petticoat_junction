@@ -16,7 +16,9 @@ class PetticoatJunction
 
     def churn
       loop do
-        @@queue_churn_rates.each { |name,attrs| add_to_queue name, latest_terms(attrs) }
+        @@queue_churn_rates.each do |name,attrs| 
+          add_to_queue(name, latest_terms(attrs))
+        end
         sleep @@pause || 10
       end
     rescue => e
@@ -31,7 +33,7 @@ class PetticoatJunction
       ::Term.need_updated(namespace, attrs[:refresh].ago, attrs[:threshold].ago)
     end
 
-    def add_to_queue(name,terms)
+    def add_to_queue(name, terms)
       PetticoatJunction.queues[namespace][name] << terms
     end
   end
